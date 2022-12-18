@@ -1,0 +1,71 @@
+
+function onOpen(e)
+ {
+  var countOlyYes = 0;
+  var countOlyYesLenUpdated =0 ; 
+  var countOlyNo= 0; 
+  var lastrow = 0 ; 
+  var countarray = ['State','Total PFs','OLY PFs','OLY PFs Dimensions Updated','OLY PFs Dimensions not Updated','Non OLY PFs','PFs Status Not updated']; 
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheets();
+ for ( var j=2; j< ss.length; j++)
+  {
+          var data = ss[j].getDataRange().getValues();
+          lastrow = ss[j].getLastRow(); 
+          for (var i = 0; i < data.length; i++) 
+          {
+              if(i!=lastrow)
+              {
+                if(data[i][15] == 'Yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'YES')
+                {countOlyYes++; }
+                if(data[i][15] == 'yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'no')
+                {countOlyNo++; }
+                if(data[i][15] == 'No')
+                {countOlyNo++; }
+                if(data[i][15] == 'NO')
+                {countOlyNo++; }
+                if(data[i][15] == 'Yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;} 
+                }
+
+
+              }
+            else 
+            break;             
+          }
+          
+          countarray.push(ss[j].getName());
+          countarray.push(lastrow-1);
+          countarray.push(countOlyYes);
+          countarray.push(countOlyYesLenUpdated); 
+          countarray.push(countOlyYes-countOlyYesLenUpdated); 
+          countarray.push(countOlyNo);
+          countarray.push((lastrow-1)-(countOlyYes+countOlyNo)); 
+           
+          countOlyYes=0; 
+          countOlyNo=0; 
+          countOlyYesLenUpdated=0; 
+
+ }          
+        
+      for( var k=0; k<countarray.length; k++)
+      {
+      //Logger.log(countarray[k]);
+      //Logger.log(countlenbred[k]);
+      }
+
+
+var shite = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("OLY"); 
+    
+    for (var i = 0; i < countarray.length; i++) 
+    {
+    var row = Math.floor(i / 7) + 1;
+    var col = (i % 7) + 1;
+    shite.getRange(row, col).setValue(countarray[i]);
+    }
+    
+}
