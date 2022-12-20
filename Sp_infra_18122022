@@ -68,4 +68,6 @@ var shite = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("OLY");
     shite.getRange(row, col).setValue(countarray[i]);
     }
     
+
+    
 }
