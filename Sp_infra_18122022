@@ -67,7 +67,13 @@ var shite = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("OLY");
     var col = (i % 7) + 1;
     shite.getRange(row, col).setValue(countarray[i]);
     }
-    
 
-    
+      // var finalSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("OLY"); 
+      // var lastRowOfFinalSheet = finalSheet.getLastRow(); 
+      // Logger.log(lastRowOfFinalSheet);
+      // var cell = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("OLY").getRange("B38:G38"); 
+      // var formulas = ["=Sum(B2:B37","=Sum(B2:B37" ,"=Sum(B2:B37" ,"=Sum(B2:B37" ,"=Sum(B2:B37" ,"=Sum(B2:B37"  ]; 
+      // cell.setFormulas(formulas); 
+
 }
+
