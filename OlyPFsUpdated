@@ -1,0 +1,305 @@
+function onOpen(e)
+ {
+   var shites = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("OLY"); 
+   shites.clear(); 
+   var shited = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ASAPF"); 
+   shited.clear(); 
+   var shiteg = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ANIPF"); 
+   shiteg.clear(); 
+   var shiter = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ARPPF"); 
+   shiter.clear(); 
+   var shitey = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ANPPF"); 
+   shitey.clear(); 
+   
+  var countOlyYes = 0;
+  var countOlyYesLenUpdated =0 ; 
+  var countOlyNo= 0; 
+  var lastrow = 0 ; 
+  var countarray = ['State','Total PFs','OLY PFs','OLY PFs Dimensions Updated','OLY PFs Dimensions not Updated','Non OLY PFs','PFs Status Not updated']; 
+  var updatedOlyPFs = []; 
+  var updatedOlyPFs1 =[] ; 
+  var updatedOlyPFs2 =[] ; 
+  var updatedOlyPFs3 =[] ; 
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheets();
+  Logger.log(ss.length);
+ for ( var j=6; j<= 10; j++)
+  {
+          var data = ss[j].getDataRange().getValues();
+          lastrow = ss[j].getLastRow(); 
+          for (var i = 0; i < data.length; i++) 
+          {
+              if(i!=lastrow)
+              {
+                if(data[i][15] == 'Yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'YES')
+                {countOlyYes++; }
+                if(data[i][15] == 'yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'no')
+                {countOlyNo++; }
+                if(data[i][15] == 'No')
+                {countOlyNo++; }
+                if(data[i][15] == 'NO')
+                {countOlyNo++; }
+                if(data[i][15] == 'Yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;} 
+                 updatedOlyPFs.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); 
+                }
+                if(data[i][15] == 'YES' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;
+                 updatedOlyPFs.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); 
+                 }
+
+                }
+                if(data[i][15] == 'yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;
+                 updatedOlyPFs.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); } 
+                }
+                
+              }
+            else 
+            break;             
+          }
+          
+          countarray.push(ss[j].getName());
+          countarray.push(lastrow-1);
+          countarray.push(countOlyYes);
+          countarray.push(countOlyYesLenUpdated); 
+          countarray.push(countOlyYes-countOlyYesLenUpdated); 
+          countarray.push(countOlyNo);
+          countarray.push((lastrow-1)-(countOlyYes+countOlyNo)); 
+           
+          countOlyYes=0; 
+          countOlyNo=0; 
+          countOlyYesLenUpdated=0; 
+
+ }
+
+ for ( var j=11; j<= 20; j++)
+  {
+          var data = ss[j].getDataRange().getValues();
+          lastrow = ss[j].getLastRow(); 
+          for (var i = 0; i < data.length; i++) 
+          {
+              if(i!=lastrow)
+              {
+                if(data[i][15] == 'Yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'YES')
+                {countOlyYes++; }
+                if(data[i][15] == 'yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'no')
+                {countOlyNo++; }
+                if(data[i][15] == 'No')
+                {countOlyNo++; }
+                if(data[i][15] == 'NO')
+                {countOlyNo++; }
+                if(data[i][15] == 'Yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;} 
+                 updatedOlyPFs1.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); 
+                }
+                if(data[i][15] == 'YES' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;
+                 updatedOlyPFs1.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); 
+                 }
+
+                }
+                if(data[i][15] == 'yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;
+                 updatedOlyPFs1.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); } 
+                }
+                
+              }
+            else 
+            break;             
+          }
+          
+          countarray.push(ss[j].getName());
+          countarray.push(lastrow-1);
+          countarray.push(countOlyYes);
+          countarray.push(countOlyYesLenUpdated); 
+          countarray.push(countOlyYes-countOlyYesLenUpdated); 
+          countarray.push(countOlyNo);
+          countarray.push((lastrow-1)-(countOlyYes+countOlyNo)); 
+           
+          countOlyYes=0; 
+          countOlyNo=0; 
+          countOlyYesLenUpdated=0; 
+
+ }
+
+ for ( var j=21; j<= 30; j++)
+  {
+          var data = ss[j].getDataRange().getValues();
+          lastrow = ss[j].getLastRow(); 
+          for (var i = 0; i < data.length; i++) 
+          {
+              if(i!=lastrow)
+              {
+                if(data[i][15] == 'Yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'YES')
+                {countOlyYes++; }
+                if(data[i][15] == 'yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'no')
+                {countOlyNo++; }
+                if(data[i][15] == 'No')
+                {countOlyNo++; }
+                if(data[i][15] == 'NO')
+                {countOlyNo++; }
+                if(data[i][15] == 'Yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;} 
+                 updatedOlyPFs2.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); 
+                }
+                if(data[i][15] == 'YES' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;
+                 updatedOlyPFs2.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); 
+                 }
+
+                }
+                if(data[i][15] == 'yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;
+                 updatedOlyPFs2.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); } 
+                }
+                
+              }
+            else 
+            break;             
+          }
+          
+          countarray.push(ss[j].getName());
+          countarray.push(lastrow-1);
+          countarray.push(countOlyYes);
+          countarray.push(countOlyYesLenUpdated); 
+          countarray.push(countOlyYes-countOlyYesLenUpdated); 
+          countarray.push(countOlyNo);
+          countarray.push((lastrow-1)-(countOlyYes+countOlyNo)); 
+           
+          countOlyYes=0; 
+          countOlyNo=0; 
+          countOlyYesLenUpdated=0; 
+
+ }
+
+for ( var j=31; j<= 41; j++)
+  {
+          var data = ss[j].getDataRange().getValues();
+          lastrow = ss[j].getLastRow(); 
+          for (var i = 0; i < data.length; i++) 
+          {
+              if(i!=lastrow)
+              {
+                if(data[i][15] == 'Yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'YES')
+                {countOlyYes++; }
+                if(data[i][15] == 'yes')
+                {countOlyYes++; }
+                if(data[i][15] == 'no')
+                {countOlyNo++; }
+                if(data[i][15] == 'No')
+                {countOlyNo++; }
+                if(data[i][15] == 'NO')
+                {countOlyNo++; }
+                if(data[i][15] == 'Yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;} 
+                 updatedOlyPFs3.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); 
+                }
+                if(data[i][15] == 'YES' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;
+                 updatedOlyPFs3.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); 
+                 }
+
+                }
+                if(data[i][15] == 'yes' && data[i][16] != '')
+                {
+                 {countOlyYesLenUpdated++;
+                 updatedOlyPFs3.push(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4]); } 
+                }
+                
+              }
+            else 
+            break;             
+          }
+          
+          countarray.push(ss[j].getName());
+          countarray.push(lastrow-1);
+          countarray.push(countOlyYes);
+          countarray.push(countOlyYesLenUpdated); 
+          countarray.push(countOlyYes-countOlyYesLenUpdated); 
+          countarray.push(countOlyNo);
+          countarray.push((lastrow-1)-(countOlyYes+countOlyNo)); 
+           
+          countOlyYes=0; 
+          countOlyNo=0; 
+          countOlyYesLenUpdated=0; 
+
+ }
+var shite = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("OLY"); 
+    
+    for (var i = 0; i < countarray.length; i++) 
+    {
+    var row = Math.floor(i / 7) + 1;
+    var col = (i % 7) + 1;
+    shite.getRange(row, col).setValue(countarray[i]);
+    }
+
+var PFUpdatedStatus = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ASAPF"); 
+
+for (var i = 0; i < updatedOlyPFs.length; i++) 
+    {
+    var row = Math.floor(i / 5) + 1;
+    var col = (i % 5) + 1;
+    PFUpdatedStatus.getRange(row, col).setValue(updatedOlyPFs[i]);
+    }
+
+var PFUpdatedStatus1 = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ANIPF"); 
+
+for (var i = 0; i < updatedOlyPFs1.length; i++) 
+    {
+    var row = Math.floor(i / 5) + 1;
+    var col = (i % 5) + 1;
+    PFUpdatedStatus1.getRange(row, col).setValue(updatedOlyPFs1[i]);
+
+
+    }
+
+var PFUpdatedStatus2 = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ARPPF"); 
+
+for (var i = 0; i < updatedOlyPFs2.length; i++) 
+    {
+    var row = Math.floor(i / 5) + 1;
+    var col = (i % 5) + 1;
+    PFUpdatedStatus2.getRange(row, col).setValue(updatedOlyPFs2[i]);
+
+
+    }
+
+
+var PFUpdatedStatus3 = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ANPPF"); 
+
+for (var i = 0; i < updatedOlyPFs3.length; i++) 
+    {
+    var row = Math.floor(i / 5) + 1;
+    var col = (i % 5) + 1;
+    PFUpdatedStatus3.getRange(row, col).setValue(updatedOlyPFs3[i]);
+
+
+    }
+
+}
